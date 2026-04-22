@@ -90,9 +90,13 @@
                 <img src="https://raw.githubusercontent.com/totohooni420/happyyonghoonday2026/main/KakaoTalk_20260325_203226912.gif" alt="프로필">
             </div>
             <div class="profile-name">천만이</div>
-            <div style="font-size:11px; color:#666; text-align:center; margin-bottom: 10px;">
-                TODAY IS... <span style="color:red;">My Birthday♥</span>
-            </div>
+         <div style="font-size:11px; color:#666; text-align:center; margin-bottom: 10px;">
+    TODAY IS... <span style="color:red;">My Birthday♥</span>
+</div>
+
+<div style="font-size:11px; color:#666; text-align:center; margin-bottom: 10px;">
+    TODAY IS... <span id="dday-text" style="color:red; font-weight:bold;">계산 중..♥</span>
+</div>
             
             <div class="sidebar-box">
                 <div class="sidebar-title"><span>싸이 BGM</span><span style="color: #6b30ff; font-size: 9px;">♬</span></div>
@@ -291,7 +295,9 @@ HAPPY BIRTHDAY ♡ <br>
 <script>
 const scriptURL = 'https://script.google.com/macros/s/AKfycbzjtTlO2UXkcavoFx_9nF8z32HLSw2-qa2KInY0QoC66zfFUpCjZe_AGHzIeZMXdpXx/exec';
 
+// 페이지 로드 시 실행
 window.onload = function() {
+    updateDDay(); // D-Day 업데이트 함수 실행
     loadComments();
     const myBgm = document.getElementById('my-bgm');
     const progressBar = document.getElementById('bgm-progress');
@@ -304,6 +310,27 @@ window.onload = function() {
         };
     }
 };
+    function updateDDay() {
+    const today = new Date(); // 오늘 날짜
+    const birthday = new Date('2026-04-20'); // 용훈이 생일
+    
+    // 두 날짜의 차이를 밀리초 단위로 계산
+    const diff = today - birthday;
+    
+    // 밀리초를 일(day) 단위로 변환
+    const daysPassed = Math.floor(diff / (1000 * 60 * 60 * 24));
+    
+    const ddayElement = document.getElementById('dday-text');
+    
+    if (daysPassed === 0) {
+        ddayElement.innerText = "My Birthday♥";
+    } else if (daysPassed > 0) {
+        ddayElement.innerText = `HAPPY YONGHOON DAY (D+${daysPassed})`;
+    } else {
+        // 생일 전일 경우 (D-Day)
+        ddayElement.innerText = `YONGHOON DAY (D${daysPassed})`;
+    }
+}
 
 function loadComments() {
     const list = document.getElementById('comment-list');
