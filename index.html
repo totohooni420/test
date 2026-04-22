@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>꿈_꾸는_후ㄴI_월-드_에 오신 걸 환영합니다~</title>
+    <style>
+        /* 기본 배경 및 폰트 설정 */ 
+        body {
+            background-color: #cfe5fc;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; margin: 0; font-family: "돋움", dotum, sans-serif;
+        }
+
+        /* 1. 메인 프레임 */
+        .outer-box {
+            width: 1140px; height: 670px; background-color: #d7cffc;
+            border: 1px solid #777; border-radius: 15px;
+            padding: 20px 40px 20px 20px; display: flex; position: relative; gap: 10px;
+        }
+
+        /* 2. 내부 흰색 점선 틀 */
+        .inner-box {
+            background-color: white; border: 2px dashed #999; border-radius: 10px;
+            flex: 1; display: flex; padding: 15px; gap: 15px; position: relative;
+        }
+
+        /* --- 왼쪽 섹션 --- */
+        .left-section { width: 170px; display: flex; flex-direction: column; flex-shrink: 0; }
+        .visitor-count { font-size: 10px; text-align: center; margin-bottom: 10px; }
+        .visitor-count b { color: #6c47ff; }
+        .profile-img { border: 1px solid #ccc; width: 100%; height: 150px; background: #eee; margin-bottom: 10px; overflow: hidden;}
+        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-name { color: #6c47ff; font-weight: bold; margin-bottom: 10px; text-align: center; }
+
+        /* 커서 설정 */
+        * { cursor: url('https://cdn.cursors-4u.net/previews/cute-strawberry-a74f8a59-32.webp') 32 32, auto !important; }
+
+        /* 파도타기 스타일 */
+        .wave-btn {
+            background-color: #6c47ff; color: white; border: 1px solid #6b30ff;
+            border-radius: 3px; padding: 3px 10px; font-size: 11px; font-weight: bold; margin-left: 4px;
+        }
+        .left-bottom { display: flex; align-items: center; justify-content: center; margin-top: auto; padding-bottom: 10px; }
+        .left-bottom select { font-size: 11px; color: #666; border: 1px solid #ccc; padding: 2px; width: 100px; }
+
+        /* --- 중앙 메인 콘텐츠 --- */
+        .main-section { flex: 1; display: flex; flex-direction: column; padding-right: 5px; position: relative; }
+        .main-title { font-size: 13px; color: #6c47ff; font-weight: bold; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        
+        /* 탭별 콘텐츠 영역 */
+        .tab-content { display: none; flex: 1; overflow-y: auto; }
+        .tab-content.active { display: block; }
+
+        .miniroom-area { width: 100%; height:360px; overflow: hidden; position: relative; margin-bottom: 15px; border: 1px solid #ddd; }
+        .miniroom-area-pic { width: 100%; height: 100%; object-fit: cover; object-position: bottom; display: block; }
+        
+        /* 일촌평 디자인 */
+        .guest-say { font-size: 11px; margin-top: 10px; }
+        .input-box { background: #f4f4f4; padding: 8px; display: flex; gap: 5px; margin-bottom: 10px; border-radius: 3px; }
+        .input-box input { border: 1px solid #ccc; font-size: 11px; padding: 3px; }
+        .comment-item { border-bottom: 1px dashed #eee; padding: 5px 0; line-height: 1.4; font-size: 11px; }
+        .comment-item b { color: #6c47ff; }
+
+        /* 사이드바 */
+        .right-sidebar { width: 160px; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; justify-content: flex-start; }
+        .sidebar-box { background: #f1f1f1; border: 1px solid #ccc; padding: 8px; font-size: 11px; border-radius: 3px; }
+        .sidebar-title { font-size: 11px; font-weight: bold; color: #666; border-bottom: 1px solid #ddd; margin-bottom: 8px; padding-bottom: 3px; display: flex; justify-content: space-between; }
+        .music-list { list-style: none; padding: 0; margin: 0; }
+        .music-list li { margin-bottom: 5px; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; }
+
+        /* 메뉴 탭 버튼 */
+        .side-tabs { position: absolute; right: -60px; top: 60px; display: flex; flex-direction: column; gap: 3px; }
+        .tab-btn {
+            width: 60px; height: 30px; background-color: #6c47ff; color: white; border: 1px solid #6b30ff;
+            border-radius: 0 5px 5px 0; font-size: 11px; text-align: center; display: flex; align-items: center; justify-content: center;
+        }
+        .tab-btn.active { background-color: white; color: black; border-left: none; font-weight: bold; }
+
+        /* 퍼가요 팝업 */
+        .scrap-popup { display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(255, 255, 255, 0.95); border: 2px solid #6b30ff; border-radius: 10px; padding: 10px 20px; color: #6b30ff; font-weight: bold; font-size: 14px; z-index: 1000; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+
+<div class="outer-box">
+    <div class="inner-box">
+        <div class="left-section">
+            <div class="visitor-count">TODAY <b>420</b> | TOTAL 2005</div>
+            <div class="profile-img">
+                <img src="https://raw.githubusercontent.com/totohooni420/happyyonghoonday2026/main/KakaoTalk_20260325_203226912.gif" alt="프로필">
+            </div>
+            <div class="profile-name">천만이</div>
+            <div style="font-size:11px; color:#666; text-align:center; margin-bottom: 10px;">
+                TODAY IS... <span style="color:red;">My Birthday♥</span>
+            </div>
+            
+            <div class="sidebar-box">
+                <div class="sidebar-title"><span>싸이 BGM</span><span style="color: #6b30ff; font-size: 9px;">♬</span></div>
+                <audio id="my-bgm" src="https://raw.githubusercontent.com/totohooni420/happyyonghoonday2026/main/seasons2.mp3" loop></audio>
+                <ul class="music-list">
+    <li id="bgm-item" style="color:#6b30ff;" onclick="toggleBgm()">
+        <span id="bgm-status">▷</span> 1. Seasons - 장용훈
+    </li>
+    <li style="color:#999;">2. SLOW TIDE - IDID</li>
+    <li style="color:#999;">3. 꿈을 꿰뚫는 순간 - IDID</li>
+</ul>
+                <div style="margin-top:8px; height:3px; background:#ddd; position:relative;">
+                    <div id="bgm-progress" style="width:0%; height:100%; background:#6b30ff; transition: width 0.1s;"></div>
+                </div>
+            </div>
+
+            <div class="left-bottom">
+                <select id="wave-select">
+                    <option value="">일촌 파도타기</option>
+                    <option value="https://www.youtube.com/@IDID_starship">YOUTUBE</option>
+            <option value="https://x.com/@IDID_starship">TWITTER</option>
+            <option value="https://www.instagram.com/idid_starship">INSTAGRAM</option>
+            <option value="https://berriz.in/ko/idid/">BERRIZ</option>
+                    <option value="https://www.instagram.com/imthedydraft">IMTHEDYDRAFT</option>
+                </select>
+                <button class="wave-btn" onclick="surf()">파도타기</button>
+            </div>
+        </div>
+
+        <div class="main-section">
+            <div class="main-title">천만이의 생파에 오신 걸 환영합니다!</div>
+
+            <div id="home" class="tab-content active">
+                <div class="miniroom-area">
+                    <img src="miniroom2.png" class="miniroom-area-pic">
+                </div>
+                <div class="guest-say">
+                    <div style="color: #6b30ff; font-weight: bold; margin-bottom: 10px;">용훈이에게 생일 축하메세지를 남겨주세요!!</div>
+                    <div class="input-box">
+                        <input type="text" id="nickname-input" placeholder="이름" style="width: 50px;">
+                        <input type="text" id="comment-input" placeholder="일촌평을 남겨주세요!" style="flex: 1;">
+                        <button type="button" onclick="addComment()">확인</button>
+                    </div>
+                    <div id="comment-list"></div>
+                </div>
+            </div>
+
+            <div id="profile" class="tab-content">
+                <div style="padding: 15px; font-size: 11px; line-height: 1.8; color: #555;">
+                    <b style="color: #6b30ff; font-size: 13px;">[백문백답] 천만이에여..☆</b><hr>
+                   <p><b>01. 이름?</b> 장용훈 </p>
+        <p><b>02. 생일?</b> 2005년 4월 20일 (천사가 태어난 날♥︎)</p>
+        <p><b>03. 별명?</b> 천만이, 먹짱 , 후니 , 토멍이 </p>
+        <p><b>04. 나의 보물 1호?</b> 위딧♥︎ (사실은 삼겹살 헷)</p>
+        <p><b>05. 나만의 해시태그?</b> #IDID #최장신 #불타는⌜열정⌟..</p>
+        <p><b>06. 학교에서 가장 좋아하는 시간?</b> 급식시간~><</p>
+        <p><b>07. 좋아하는 색깔?</b> 네이비! 예쁘잖아요! 되게 빠져드는 색!</p>
+        <p><b>08. 싫어하는 거?</b> 가지.. 가지는 좀 어려워.. 가지 빼고는 다 잘 먹습니당ㅎㅎ</p>
+        <p><b>09. 지금 내 기분?</b> 삼겹살 먹고싶다..</p>
+        <p><b>10. 일촌이란?</b> 용훈이를 사랑스럽게 바라봐주는 사람들!</p>
+        <p><b>11. 가장 행복했을 때?</b> 2026년 11월 20일 위딧 이름 생긴 날>< </p>
+        <p><b>12. 나의 MBTI?</b> COOL~ (F가 좀 섞여있는 ENTJ인듯.)</p>
+        <p><b>13. 내 장점?</b> 생각이 많은 편이고 사소한 일이라도 곱씹고 고민하는 성격이에요.</p>
+        <p><b>14. 어렸을 때 나의 꿈?</b> 쇼트트랙 선수, 피아니스트, 우주비행사, 대통령, 사업가, 대학교 교수</p>
+        <p><b>15. 나에게 청춘이란?</b> ‘용기’ </p>
+        <p><b>16. 위딧하면?</b> 예쁜 눈이 생각나♥︎ 나를, 아이딧을 바라봐 주는 위딧의 눈은 항상 반짝거리거든.. </p>
+        <p><b>17. 지금 가장 먹고 싶은 거?</b> 삼겹살!!!!! </p>
+        <p><b>18. 나의 TMI?</b> 겨울에 따뜻한 고구마 라떼를 먹는 것을 좋아한다.</p>
+        <p><b>19. 마지막 한마디?</b> 올해 내 생일이 월요일인데 월요일 버텨내느라 완전 고생했어ㅓ.. 완전 안아줘야 돼 🫳🏼🫳🏼</p>
+        <p><b>20. 업데이트 날짜?</b> 2026. 04. 20</p>
+                </div>
+            </div>
+ <div id="photo" class="tab-content">
+                <div id="scrap-msg" class="scrap-popup">🐰퍼가요~♡</div>
+                <b style="color:#6b30ff; padding: 10px; display: block;">[Photo Album]</b><hr>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 10px;">
+                    <div class="photo-item" style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
+                        <img src="IMG_4351.JPG" onclick="showScrapMsg()" style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                        <div style="font-size: 11px; font-weight: bold; margin-top:5px;">Merry Christmas 🩵</div>
+                    </div>
+                    <div class="photo-item" style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
+                        <img src="dog.jpg" onclick="showScrapMsg()" style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                        <div style="font-size: 11px; font-weight: bold; margin-top:5px;">In my life..🐶🤍</div>
+                    </div>
+                      <div class="photo-item" style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
+                        <img src="zip.jpg" onclick="showScrapMsg()" style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                        <div style="font-size: 11px; font-weight: bold; margin-top:5px;">⚠️ Don't push back!! ⚠️
+</div>
+                    </div>
+                      <div class="photo-item" style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
+                        <img src="rose.jpg" onclick="showScrapMsg()" style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                        <div style="font-size: 11px; font-weight: bold; margin-top:5px;">🌹</div>
+                    </div>
+                       <div class="photo-item" style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
+                        <img src="pajama.jpg" onclick="showScrapMsg()" style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                        <div style="font-size: 11px; font-weight: bold; margin-top:5px;">오늘 하루도 고생 많았어요, 잘 자요 !!😴</div>
+                    </div>
+                       <div class="photo-item" style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
+                        <img src="blue.jpg" onclick="showScrapMsg()" style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                        <div style="font-size: 11px; font-weight: bold; margin-top:5px;">🐇: Summer is coming !!</div>
+                    </div>
+                     <div class="photo-item" style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
+                        <img src="camera.jpg" onclick="showScrapMsg()" style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                        <div style="font-size: 11px; font-weight: bold; margin-top:5px;">인생샷은 나한테 맡겨 📷</div>
+                    </div>
+                     <div class="photo-item" style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
+                        <img src="photoism.jpg" onclick="showScrapMsg()" style="width: 100%; aspect-ratio: 3/2; object-fit: cover;">
+                        <div style="font-size: 11px; font-weight: bold; margin-top:5px;">남는 건 사진뿐이래 📷✨</div>
+                    </div>
+                </div>
+            </div>
+            
+      <div id="guestbook" class="tab-content" style="padding: 10px; overflow-y: auto; max-height: 520px;">
+    
+    <div style="margin-bottom: 20px; border-bottom: 1px dashed #ccc; padding-bottom: 10px;">
+        <div style="background-color: #f1f1f1; padding: 5px 10px; display: flex; justify-content: space-between; align-items: center; border-radius: 2px;">
+            <div style="font-size: 11px; color: #666;">
+                <span style="color: #6b30ff; font-weight: bold;">NO. 1</span> 
+                <span style="margin-left: 10px; color: #333;">작go소듕한명2★☆</span> 🏠
+            </div>
+            <div style="font-size: 11px; color: #999;">(2026.04.20 00:01)</div>
+        </div>
+        <div style="display: flex; padding: 10px 0;">
+            <div style="width: 80px; text-align: center;">
+                <img src="https://raw.githubusercontent.com/totohooni420/happyyonghoonday2026/main/IMG_6231.jpg" style="width: 50px; filter: grayscale(0.5);">
+            </div>
+            <div style="flex: 1; font-size: 12px; line-height: 1.6; color: #444; padding-left: 10px;">
+                용훈아! 생일 넘넘 축하ㅎr해!!  <br>
+                우리 햄버거 먹으러 가자! 토토가 쏜대!!ㅎㅎ <br>
+                이따가 우주놀이터에서 4시 20분까지 만ㄴrㅈr~'o' !! gogo
+            </div>
+        </div>
+    </div>
+        
+       <div style="margin-bottom: 20px; border-bottom: 1px dashed #ccc; padding-bottom: 10px;">
+        <div style="background-color: #f1f1f1; padding: 5px 10px; display: flex; justify-content: space-between; align-items: center; border-radius: 2px;">
+            <div style="font-size: 11px; color: #666;">
+                <span style="color: #6b30ff; font-weight: bold;">NO. 2</span> 
+                <span style="margin-left: 10px; color: #333;">후니ㅁ占</span> 🏠
+            </div>
+            <div style="font-size: 11px; color: #999;">(2026.04.20 00:24)</div>
+        </div>
+        
+        <div style="display: flex; padding: 10px 0;">
+            <div style="width: 80px; text-align: center;">
+                <img src="https://raw.githubusercontent.com/totohooni420/happyyonghoonday2026/main/IMG_6231.jpg" style="width: 50px; filter: grayscale(0.5);">
+            </div>
+            <div style="flex: 1; font-size: 12px; line-height: 1.6; color: #444; padding-left: 10px;">
+               용훈ㅇ ㅏ :) <br>
+HAPPY BIRTHDAY ♡ <br>
+               벌써 또 한 살 먹었네~ 시간 진짜 빠르ㄷ ㅏ ㅎㅎ<br>
+그래도 오늘만큼은 걱정 ㄷ ㅏ 잊고<br>
+제일 행복하게 보ㄴ ㅐㅇ ㅑ 하는 ㄱ ㅓ 알지?<br>
+                맛있는 것도 많이 먹고, 웃는 일만 ㄱ ㅏ득했으면 좋겠ㄷ ㅏ :)<br>
+앞으로도 지금처럼만 쭉 잘 지ㄴ ㅐ보자구~<br>
+ㄷ ㅏ시 한 번 생일 진심으로 축하해 ♡<br>
+오늘 하루는 너의 날이ㄷ ㅏ!! ✨
+            </div>
+        </div>
+       </div>
+               <div style="margin-bottom: 20px; border-bottom: 1px dashed #ccc; padding-bottom: 10px;">
+        <div style="background-color: #f1f1f1; padding: 5px 10px; display: flex; justify-content: space-between; align-items: center; border-radius: 2px;">
+            <div style="font-size: 11px; color: #666;">
+                <span style="color: #6b30ff; font-weight: bold;">NO. 3</span> 
+                <span style="margin-left: 10px; color: #333;">မㅣ밀친구</span> 🏠
+            </div>
+            <div style="font-size: 11px; color: #999;">(2026.04.20 04:20)</div>
+        </div>
+        
+        <div style="display: flex; padding: 10px 0;">
+            <div style="width: 80px; text-align: center;">
+                <img src="https://raw.githubusercontent.com/totohooni420/happyyonghoonday2026/main/IMG_6231.jpg" style="width: 50px; filter: grayscale(0.5);">
+            </div>
+            <div style="flex: 1; font-size: 12px; line-height: 1.6; color: #444; padding-left: 10px;">
+                용후ㄴГ 우ㄹㅣ가 본ⓩ┃도 벌써 1년○Ι 되어따<br>
+Ꮣㅓ의 생일을 축ṑトṑΗ줄수 있ꙕㅅㅓ 넘 행복해<br>
+행복한 생일날 보ㄴㅐ구<br>
+세상에ᨈㅓ 제일 행복ㅎŁ 생일 보しΗ 🧡
+            </div>
+        </div>              
+    </div>     
+    </div> 
+        
+           <div class="side-tabs">
+            <button class="tab-btn active" onclick="switchTab(this, 'home')">홈</button>
+            <button class="tab-btn" onclick="switchTab(this, 'profile')">프로필</button>
+            <button class="tab-btn" onclick="switchTab(this, 'photo')">사진첩</button>
+            <button class="tab-btn" onclick="switchTab(this, 'guestbook')">방명록</button>
+        </div>
+
+</div>
+    </div>
+</div>
+
+
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzjtTlO2UXkcavoFx_9nF8z32HLSw2-qa2KInY0QoC66zfFUpCjZe_AGHzIeZMXdpXx/exec';
+
+window.onload = function() {
+    loadComments();
+    const myBgm = document.getElementById('my-bgm');
+    const progressBar = document.getElementById('bgm-progress');
+    if (myBgm && progressBar) {
+        myBgm.ontimeupdate = function() {
+            if(myBgm.duration > 0) {
+                const progress = (myBgm.currentTime / myBgm.duration) * 100;
+                progressBar.style.width = progress + "%";
+            }
+        };
+    }
+};
+
+function loadComments() {
+    const list = document.getElementById('comment-list');
+    // 데이터를 가져오기 전에 미리 문구를 띄워줍니다!
+    list.innerHTML = '<div class="comment-item" style="color:#999;">일촌평을 불러오는 중... 🔍</div>';
+    fetch(scriptURL + "?t=" + new Date().getTime())
+    .then(res => res.json())
+    .then(data => {
+        list.innerHTML = ''; 
+        if (data && data.length > 0) {
+            data.reverse().forEach(item => {
+                const newItem = document.createElement('div');
+                newItem.className = 'comment-item';
+                newItem.innerHTML = `<b>${item.nickname || '일촌'}</b> ${item.content || ''}`;
+                list.appendChild(newItem);
+            });
+        } else {
+            list.innerHTML = '<div class="comment-item">아직 일촌평이 없어요! 🥓</div>';
+        }
+    });
+}
+
+function addComment() {
+    const nickInput = document.getElementById('nickname-input');
+    const contentInput = document.getElementById('comment-input');
+    const nickname = nickInput.value.trim() || "일촌";
+    const content = contentInput.value.trim();
+    if (!content) return alert("일촌평을 입력해주세요!");
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify({ user_name: nickname, user_msg: content })
+    })
+    .then(() => {
+        alert(nickname + "님의 일촌평이 등록되었습니다!🥓");
+        nickInput.value = ''; contentInput.value = ''; loadComments(); 
+    });
+}
+
+// 탭 전환 기능 (중복 코드 수정)
+function switchTab(btn, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(c => {
+        c.style.display = 'none';
+        c.classList.remove('active');
+    });
+    
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+    
+    const target = document.getElementById(tabId);
+    if(target) {
+        target.style.display = 'block';
+        target.classList.add('active');
+    }
+    btn.classList.add('active');
+}
+
+function toggleBgm() {
+    const bgm = document.getElementById('my-bgm');
+    const bgmStatus = document.getElementById('bgm-status');
+    if (bgm.paused) {
+        bgm.play(); bgmStatus.innerText = "▶";
+    } else {
+        bgm.pause(); bgmStatus.innerText = "▷";
+    }
+    }
+
+function showScrapMsg() {
+    const msg = document.getElementById('scrap-msg');
+    msg.style.display = 'block';
+    setTimeout(() => { msg.style.display = 'none'; }, 1500);
+}
+
+function surf() {
+    const url = document.getElementById('wave-select').value;
+    if (url) window.open(url, '_blank');
+}
+</script>
+</body>
+</html>
